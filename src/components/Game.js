@@ -21,6 +21,12 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
 
+
+   const handleChoice = (card) =>{
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
+  
+
   const shuffleCards = (deckSize) => {
     const shuffledCards = [
       ...cardImages.slice(0, deckSize),
@@ -32,14 +38,30 @@ function App() {
     setTurns(0);
   };
 
+  useEffect(()=>{
+    if(choiceOne && choiceTwo){
+      if(choiceOne.src === choiceTwo.src){
+        console.log("match")
+        reset()
+      }
+    }
+  }, [choiceOne, choiceTwo])
+
+
+  const reset = () => {
+    setTurns(prevTurn => prevTurn+1)
+    setChoiceOne(null)
+    setChoiceTwo(null)
+  }
+
   return (
     <>
       <div className="App">
         <Header shuffleCards={shuffleCards} />
-        <h3>Turns: {turns}</h3>
+        <h3>Turn: {turns}</h3>
         <div className="card-grid">
           {cards.map((card) => (
-            <Card key={card.id} card={card} />
+            <Card key={card.id} card={card} handleChoice={handleChoice} />
           ))}
         </div>
       </div>
