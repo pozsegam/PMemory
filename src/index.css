@@ -1,6 +1,7 @@
 html,
 body {
-  margin: 0;
+  position: fixed;
+  margin: 1rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -15,6 +16,29 @@ body {
   overflow-x: hidden;
   color: #fff;
   background-attachment: scroll;
+}
+
+.intro-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.play-btn {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #7a0bc0;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  padding: 0.7rem 1.5rem;
+}
+
+.model {
+  height: 15rem;
 }
 
 .logo > img {

@@ -3,16 +3,16 @@ import Header from "./Header";
 import Card from "./Card";
 
 const cardImages = [
-  { src: "img/angular.png", match: false},
-  { src: "img/d3.png" , match: false},
+  { src: "img/angular.png", match: false },
+  { src: "img/d3.png", match: false },
   { src: "img/evista.png", match: false },
-  { src: "img/jenkins.png" , match: false},
-  { src: "img/postcss.png" , match: false},
-  { src: "img/react.png" , match: false},
-  { src: "img/redux.png" , match: false},
-  { src: "img/sass.png" , match: false},
-  { src: "img/ts.png" , match: false},
-  { src: "img/webpack.png" , match: false},
+  { src: "img/jenkins.png", match: false },
+  { src: "img/postcss.png", match: false },
+  { src: "img/react.png", match: false },
+  { src: "img/redux.png", match: false },
+  { src: "img/sass.png", match: false },
+  { src: "img/ts.png", match: false },
+  { src: "img/webpack.png", match: false },
 ];
 
 function App() {
@@ -21,11 +21,9 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
 
-
-   const handleChoice = (card) =>{
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
-  }
-  
+  const handleChoice = (card) => {
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  };
 
   const shuffleCards = (deckSize) => {
     const shuffledCards = [
@@ -38,25 +36,23 @@ function App() {
     setTurns(0);
   };
 
-  useEffect(()=>{
-    if(choiceOne && choiceTwo){
-      if(choiceOne.src === choiceTwo.src){
-        console.log("match")
-        reset()
-      }
-      else{
-        reset()
-        console.log("no match")
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log("match");
+        reset();
+      } else {
+        reset();
+        console.log("no match");
       }
     }
-  }, [choiceOne, choiceTwo])
-
+  }, [choiceOne, choiceTwo]);
 
   const reset = () => {
-    setTurns(() => setTurns(turns+1))
-    setChoiceOne(null)
-    setChoiceTwo(null)
-  }
+    setTurns(() => setTurns(turns + 1));
+    setChoiceOne(null);
+    setChoiceTwo(null);
+  };
 
   return (
     <>
@@ -69,7 +65,6 @@ function App() {
           ))}
         </div>
       </div>
-      ;
     </>
   );
 }
