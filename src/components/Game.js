@@ -3,16 +3,16 @@ import Header from "./Header";
 import Card from "./Card";
 
 const cardImages = [
-  { src: "img/angular.png" },
-  { src: "img/d3.png" },
-  { src: "img/evista.png" },
-  { src: "img/jenkins.png" },
-  { src: "img/postcss.png" },
-  { src: "img/react.png" },
-  { src: "img/redux.png" },
-  { src: "img/sass.png" },
-  { src: "img/ts.png" },
-  { src: "img/webpack.png" },
+  { src: "img/angular.png", match: false},
+  { src: "img/d3.png" , match: false},
+  { src: "img/evista.png", match: false },
+  { src: "img/jenkins.png" , match: false},
+  { src: "img/postcss.png" , match: false},
+  { src: "img/react.png" , match: false},
+  { src: "img/redux.png" , match: false},
+  { src: "img/sass.png" , match: false},
+  { src: "img/ts.png" , match: false},
+  { src: "img/webpack.png" , match: false},
 ];
 
 function App() {
@@ -44,12 +44,16 @@ function App() {
         console.log("match")
         reset()
       }
+      else{
+        reset()
+        console.log("no match")
+      }
     }
   }, [choiceOne, choiceTwo])
 
 
   const reset = () => {
-    setTurns(prevTurn => prevTurn+1)
+    setTurns(() => setTurns(turns+1))
     setChoiceOne(null)
     setChoiceTwo(null)
   }
