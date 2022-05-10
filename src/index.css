@@ -1,7 +1,7 @@
 html,
 body {
   position: fixed;
-  margin: 1rem;
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -16,6 +16,10 @@ body {
   overflow-x: hidden;
   color: #fff;
   background-attachment: scroll;
+}
+
+body {
+  margin: 1rem;
 }
 
 .intro-board {
@@ -40,54 +44,95 @@ body {
 .model {
   height: 15rem;
 }
+.logo {
+  display: flex;
+  justify-content: center;
+}
 
 .logo > img {
   width: 50%;
+  margin-bottom: 1rem;
 }
 
 h3 {
   text-align: center;
+  margin: 1rem;
 }
 
-.form {
+.header button {
+  color: white;
+  background-color: #7a0bc0;
+  border: none;
+  border-radius: 2rem;
+  width: 5rem;
+  height: 2rem;
+  font-weight: bold;
+}
+
+label {
+  width: 5rem;
+  text-align: center;
+  margin-right: 0.1rem;
+}
+
+input {
+  background-color: #1a202c;
+  border: 1px solid white;
+  border-radius: 2rem;
+  margin-right: 1rem;
+
+  width: 5rem;
+  height: 1.5rem;
+  text-align: center;
+  color: white;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+form {
   display: flex;
   justify-content: center;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
+  width: 100%;
   align-items: center;
-  margin: 1rem;
-  width: 80%;
-  height: 80%;
 }
 
 .card-grid {
-  width: 100%;
-  height: 100%;
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 1rem;
+  gap: 1rem;
+  height: auto;
 }
 
 .card {
-  cursor: pointer;
-  transition: 0.3s ease;
-  border-radius: 16px;
-  width: 70%;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  object-fit: contain;
+  position: relative;
+  width: auto;
 }
 
-.front {
-  width: 75%;
-  padding: 1rem;
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
 }
 
-.back {
-  width: 75%;
-  padding: 1rem;
+.card .front {
+  transform: rotateY(90deg);
+  position: absolute;
+  transition: all ease-in 0.2s;
+}
+
+.flipped .front {
+  transform: rotateY(0deg);
+  transition-delay: 0.2s;
+}
+
+.card .back {
+  transition: all ease-in 0.2s;
+  transition-delay: 0.2s;
+}
+
+.flipped .back {
+  transform: rotateY(90deg);
+  transition-delay: 0.2s;
 }

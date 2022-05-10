@@ -16,24 +16,20 @@ function Header({ shuffleCards }) {
   return (
     <div className="header">
       <div className="logo">
-        <img src={process.env.PUBLIC_URL + "img/logo.png"} alt="logo" />
+        <img src={process.env.PUBLIC_URL + "img/rmbgLogo.png"} alt="logo" />
       </div>
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-          <label>
-            Deck size
-            <input
-              min="3"
-              max="10"
-              placeholder="3-10"
-              type="number"
-              value={deckSize}
-              onChange={handleChange}
-            />
-          </label>
-          <button type="submit">Set</button>
-        </form>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <label>Deck size:</label>
+        <input
+          min="3"
+          max="10"
+          placeholder="3-10"
+          type="number"
+          value={deckSize}
+          onChange={handleChange}
+        />
+        <button type="submit">Set</button>
+      </form>
     </div>
   );
 }

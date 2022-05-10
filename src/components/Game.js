@@ -20,11 +20,14 @@ function App() {
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
+  const [disabled, setDisabled] = useState(false);
 
+  //setting choices
   const handleChoice = (card) => {
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
+  //new game, shuffle cards
   const shuffleCards = (deckSize) => {
     const shuffledCards = [
       ...cardImages.slice(0, deckSize),
@@ -36,22 +39,36 @@ function App() {
     setTurns(0);
   };
 
+  //on match :
+  //iterate through cards
+  //set match property true
   useEffect(() => {
+    //match beallitasa
     if (choiceOne && choiceTwo) {
+      setDisabled(true);
       if (choiceOne.src === choiceTwo.src) {
-        console.log("match");
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            if (card.src === choiceOne.src) {
+              return { ...card, match: true };
+            } else {
+              return card;
+            }
+          });
+        });
         reset();
       } else {
-        reset();
-        console.log("no match");
+        setTimeout(reset, 1000);
       }
     }
   }, [choiceOne, choiceTwo]);
 
+  //2 turns
   const reset = () => {
     setTurns(() => setTurns(turns + 1));
     setChoiceOne(null);
     setChoiceTwo(null);
+    setDisabled(false);
   };
 
   return (
@@ -61,7 +78,13 @@ function App() {
         <h3>Turn: {turns}</h3>
         <div className="card-grid">
           {cards.map((card) => (
-            <Card key={card.id} card={card} handleChoice={handleChoice} />
+            <Card
+              key={card.id}
+              card={card}
+              handleChoice={handleChoice}
+              flipped={card === choiceOne || card === choiceTwo || card.match}
+              disabled={disabled}
+            />
           ))}
         </div>
       </div>

@@ -1,13 +1,19 @@
-function Header({ card, handleChoice }) {
-  const handleClick = () =>{
-    handleChoice(card)
-  }
+function Header({ card, handleChoice, flipped, disabled }) {
+  const handleClick = () => {
+    if (!disabled) {
+      handleChoice(card);
+    }
+  };
 
   return (
     <div className="card">
-      <div>
+      <div className={flipped ? "flipped" : ""}>
         <img className="front" src={card.src} alt="front" />
-        <img className="back" onClick={handleClick} src={process.env.PUBLIC_URL + "img/cardBg.png"} />
+        <img
+          className="back"
+          onClick={handleClick}
+          src={process.env.PUBLIC_URL + "img/cardBg.png"}
+        />
       </div>
     </div>
   );
