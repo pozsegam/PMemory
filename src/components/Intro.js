@@ -11,20 +11,6 @@ function Intro() {
   const model = useLoader(GLTFLoader, "robot.gltf");
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    const handleWindowMouseMove = (event) => {
-      setCursor({
-        x: event.screenX,
-        y: event.screenY,
-      });
-    };
-    window.addEventListener("mousemove", handleWindowMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleWindowMouseMove);
-    };
-  }, []);
-
   return (
     <div className="intro-board">
       <div className="model">

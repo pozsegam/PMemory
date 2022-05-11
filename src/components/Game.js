@@ -35,9 +35,15 @@ function App() {
     ]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
+    setChoiceOne(null);
+    setChoiceTwo(null);
     setCards(shuffledCards);
     setTurns(0);
   };
+
+  useEffect(() => {
+    shuffleCards();
+  }, []);
 
   //on match :
   //iterate through cards
@@ -75,7 +81,7 @@ function App() {
     <>
       <div className="App">
         <Header shuffleCards={shuffleCards} />
-        <h3>Turn: {turns}</h3>
+
         <div className="card-grid">
           {cards.map((card) => (
             <Card
@@ -87,6 +93,7 @@ function App() {
             />
           ))}
         </div>
+        <h3>Turn: {turns}</h3>
       </div>
     </>
   );

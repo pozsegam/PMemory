@@ -4,7 +4,7 @@ function Header({ card, handleChoice, flipped, disabled }) {
       handleChoice(card);
     }
   };
-
+  //single card component
   return (
     <div className="card">
       <div className={flipped ? "flipped" : "flipping-back"}>

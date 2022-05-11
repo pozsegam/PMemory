@@ -7,6 +7,7 @@ function Header({ shuffleCards }) {
     setDeckSize(e.currentTarget.value);
   };
 
+  //deck size kezelese
   const handleSubmit = (e) => {
     e.preventDefault();
     shuffleCards(deckSize);

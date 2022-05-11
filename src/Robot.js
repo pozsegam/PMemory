@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
+//Robot gltf model converted into JSX component using gltfjsx
+
 export default function Model({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF("trying.glb");

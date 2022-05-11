@@ -26,7 +26,19 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 1rem;
+}
+
+.rules-div {
+  width: 30rem;
+  font-size: 1.5rem;
+}
+.rules-div h1 {
+  font-size: 3rem;
+  margin-top: 0;
+}
+
+p {
+  padding: 0rem 2rem;
 }
 
 .App {
@@ -40,58 +52,58 @@ body {
   color: white;
   background-color: #01b8aa;
   border: none;
-  border-radius: 2rem;
+  border-radius: 5rem;
   cursor: pointer;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
 }
 
 .model {
-  height: 15rem;
+  height: 20rem;
+  width: 20rem;
 }
 .logo {
   display: flex;
+  margin: 3rem;
   justify-content: center;
 }
 
 .logo > img {
   width: 50%;
-  margin-bottom: 1rem;
 }
 
 h3 {
   text-align: center;
-  margin: 1rem;
+  margin: 2rem;
   font-weight: 400;
+  font-size: 2rem;
 }
 
 .header button {
   color: white;
   background-color: #01b8aa;
-
   border: none;
   border-radius: 2rem;
-  width: 5rem;
-  height: 2rem;
+  font-size: 1rem;
+  padding: 1rem 3rem;
   font-weight: bold;
 }
 
 label {
-  width: 5rem;
   text-align: center;
-  margin-right: 0.1rem;
+  font-size: 1rem;
+  margin-right: 1rem;
 }
 
 input {
   background-color: #1a202c;
   border: 1px solid white;
   border-radius: 2rem;
-  margin-right: 1rem;
-
-  width: 5rem;
-  height: 1.5rem;
+  margin-right: 4rem;
+  font-size: 1rem;
   text-align: center;
   color: white;
+  padding: 1rem 1rem;
 }
 input:focus,
 textarea:focus {
@@ -103,14 +115,14 @@ form {
   justify-content: center;
   width: 100%;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .card-grid {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
+  justify-content: center;
   gap: 1rem;
-
-  height: auto;
 }
 
 .card {
@@ -131,6 +143,7 @@ form {
   transition: all ease-in 0.2s;
   height: 75%;
   width: 75%;
+  object-fit: contain;
 }
 
 .flipped .front {
@@ -162,106 +175,125 @@ form {
   transition-delay: 0.2s;
 }
 
-@media (min-width: 600px) {
-  .card-grid {
-    grid-template-columns: repeat(4, 1fr);
+@media only screen and (min-width: 680px) {
+  .logo {
+    margin: 2rem;
+  }
+  .model {
+    height: 22rem;
+    width: 25rem;
+  }
+
+  form {
+    margin-bottom: 2rem;
   }
 
   .card {
-    width: 10rem;
-    height: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 7rem;
+    height: 7rem;
   }
+  .card .back {
+    width: 7rem;
+    height: 7rem;
+  }
+}
 
+@media only screen and (min-width: 960px) {
+  .logo > img {
+    width: 25%;
+  }
   .model {
     height: 30rem;
-  }
-
-  .play-btn {
-    margin-top: 1.5rem;
-    padding: 1rem 2rem;
-    font-size: 2rem;
+    width: 30rem;
   }
 
   .rules-div {
-    margin: 0 7rem;
+    width: 40rem;
+    font-size: 1.5rem;
   }
 
-  .rules-div p {
-    font-size: 1.6rem;
+  .card-grid {
+    grid-template-columns: repeat(5, auto);
   }
-
-  h3 {
-    font-size: 1.6rem;
+  .card {
+    width: 9rem;
+    height: 9rem;
+  }
+  .card .back {
+    width: 9rem;
+    height: 9rem;
   }
 
   label {
-    font-size: 1.6rem;
-    width: 10rem;
+    font-size: 2rem;
   }
-
-  .header button {
-    font-size: 1.6rem;
-    width: 7rem;
-    height: 2.5rem;
-  }
-
   input {
-    width: 7rem;
-    height: 2.5rem;
-    font-size: 1.6rem;
+    font-size: 2rem;
+  }
+  .header button {
+    font-size: 2rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
+  .logo img {
+    width: 20%;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(6, auto);
+  }
+  .card {
+    width: 9rem;
+    height: 9rem;
+  }
+  .card .back {
+    width: 9rem;
+    height: 9rem;
+  }
+
   .intro-board {
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
     margin-top: 10rem;
-    height: 50rem;
-  }
-  .model {
-    height: 40rem;
-    width: 30rem;
-  }
-  .play-btn {
-    font-size: 2.5rem;
   }
 
   .rules-div {
-    margin: 0 7rem;
+    width: 50rem;
   }
 
-  .rules-div p {
-    font-size: 1.8rem;
+  .model {
+    height: 40rem;
   }
 }
 
-@media (min-width: 1900px) {
-  .intro-board {
-    height: 50rem;
+@media only screen and (min-width: 1900px) {
+  .logo img {
+    width: 20%;
+  }
 
-    justify-content: center;
+  .card-grid {
+    grid-template-columns: repeat(7, auto);
+  }
+  .card {
+    width: 10rem;
+    height: 10rem;
+  }
+  .card .back {
+    width: 10rem;
+    height: 10rem;
   }
   .model {
     height: 50rem;
-    width: 60rem;
+  }
+  .intro-board {
+    margin-top: 5rem;
+  }
+  h1 {
+    margin-bottom: 3rem;
   }
   .play-btn {
-    font-size: 2.5rem;
-  }
-
-  .rules-div {
-    margin: 0 7rem;
-    width: 80rem;
-  }
-
-  .rules-div p {
-    font-size: 1.8rem;
-  }
-
-  h1 {
-    font-size: 6rem;
+    margin-top: 3rem;
   }
 }
