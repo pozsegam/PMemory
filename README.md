@@ -31,3 +31,7 @@ The majority of my time was spent with React Three Fiber... It was a challenge t
 ```console
  npm start
 ```
+
+## Credit
+
+This work is based on "Baby Robot // 3Dcoat" (https://sketchfab.com/3d-models/baby-robot-3dcoat-eae164d3570144bfb86a2cc03e73ceed) by spliter (https://sketchfab.com/spliter) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
