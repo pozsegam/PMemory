@@ -5,6 +5,7 @@ import { useLoader, useFrame } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import Robot from "../Robot";
 import { OrbitControls } from "@react-three/drei";
+import { ShadowMaterial } from "three";
 
 function Intro() {
   const model = useLoader(GLTFLoader, "robot.gltf");
@@ -28,9 +29,10 @@ function Intro() {
     <div className="intro-board">
       <div className="model">
         <Canvas camera={{ position: [30, 0, 0] }}>
-          <OrbitControls autoRotate enableZoom={false} />
           <ambientLight intensity={0.5} />
-          <directionalLight position={[-5, 10, 2]} />
+          <directionalLight castShadow position={[0, 10, 0]} intensity={1.5} />
+          <pointLight position={[-10, 0, -20]} intensity={0.5} />
+          <pointLight position={[0, -10, 0]} intensity={1.5} />
           <Suspense fallback={null}>
             <Robot scale={5} />
           </Suspense>

@@ -1,15 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
 html,
 body {
   position: fixed;
-
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #1a202c;
-
+  background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
+  margin: 0;
   height: 100%;
+  width: 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -18,27 +20,30 @@ body {
   background-attachment: scroll;
 }
 
-body {
-  margin: 1rem;
-}
-
 .intro-board {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin: 1rem;
+}
+
+.App {
+  margin: 1rem;
+  height: 100%;
 }
 
 .play-btn {
   margin-top: 1rem;
   font-weight: bold;
   color: white;
-  background-color: #7a0bc0;
+  background-color: #01b8aa;
   border: none;
   border-radius: 2rem;
   cursor: pointer;
   padding: 0.7rem 1.5rem;
+  font-size: 1rem;
 }
 
 .model {
@@ -57,11 +62,13 @@ body {
 h3 {
   text-align: center;
   margin: 1rem;
+  font-weight: 400;
 }
 
 .header button {
   color: white;
-  background-color: #7a0bc0;
+  background-color: #01b8aa;
+
   border: none;
   border-radius: 2rem;
   width: 5rem;
@@ -102,24 +109,28 @@ form {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 1rem;
+
   height: auto;
 }
 
 .card {
   position: relative;
-  width: auto;
-}
-
-.card img {
-  width: 100%;
-  display: block;
+  width: 6rem;
+  height: 6rem;
   border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .card .front {
   transform: rotateY(90deg);
   position: absolute;
   transition: all ease-in 0.2s;
+  height: 75%;
+  width: 75%;
 }
 
 .flipped .front {
@@ -127,12 +138,130 @@ form {
   transition-delay: 0.2s;
 }
 
+.flipped {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flipping-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card .back {
   transition: all ease-in 0.2s;
   transition-delay: 0.2s;
+  width: 6rem;
+  height: 6rem;
 }
 
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0.2s;
+}
+
+@media (min-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    width: 10rem;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .model {
+    height: 30rem;
+  }
+
+  .play-btn {
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+  }
+
+  .rules-div {
+    margin: 0 7rem;
+  }
+
+  .rules-div p {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  label {
+    font-size: 1.6rem;
+    width: 10rem;
+  }
+
+  .header button {
+    font-size: 1.6rem;
+    width: 7rem;
+    height: 2.5rem;
+  }
+
+  input {
+    width: 7rem;
+    height: 2.5rem;
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .intro-board {
+    flex-direction: row;
+    margin-top: 10rem;
+    height: 50rem;
+  }
+  .model {
+    height: 40rem;
+    width: 30rem;
+  }
+  .play-btn {
+    font-size: 2.5rem;
+  }
+
+  .rules-div {
+    margin: 0 7rem;
+  }
+
+  .rules-div p {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .intro-board {
+    height: 50rem;
+
+    justify-content: center;
+  }
+  .model {
+    height: 50rem;
+    width: 60rem;
+  }
+  .play-btn {
+    font-size: 2.5rem;
+  }
+
+  .rules-div {
+    margin: 0 7rem;
+    width: 80rem;
+  }
+
+  .rules-div p {
+    font-size: 1.8rem;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
 }

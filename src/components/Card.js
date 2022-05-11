@@ -7,13 +7,9 @@ function Header({ card, handleChoice, flipped, disabled }) {
 
   return (
     <div className="card">
-      <div className={flipped ? "flipped" : ""}>
+      <div className={flipped ? "flipped" : "flipping-back"}>
         <img className="front" src={card.src} alt="front" />
-        <img
-          className="back"
-          onClick={handleClick}
-          src={process.env.PUBLIC_URL + "img/cardBg.png"}
-        />
+        <div className="back" onClick={handleClick}></div>
       </div>
     </div>
   );
